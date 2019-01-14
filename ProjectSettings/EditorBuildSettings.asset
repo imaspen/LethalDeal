@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: be0f125f367acb34f8a090680965f947
+  - enabled: 1
+    path: Assets/Scenes/Game Screen.unity
+    guid: 8624d11affedc294aa0a53aa51fee587
+  - enabled: 1
+    path: Assets/Scenes/Deckbuilder.unity
+    guid: 30026b76bf9f3cf4c9b5334231cb452f
+  - enabled: 1
+    path: Assets/Scenes/Options Menu.unity
+    guid: 6ceec3b5d791799479cc8baa11d6bed6
