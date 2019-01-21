@@ -48,7 +48,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1272546562426726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -822479833, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 39d3b49e98707ee4787c38c096edd72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 9489
@@ -121,3 +121,7 @@ MonoBehaviour:
   matchSize: 2
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+  dealerPrefab: {fileID: 1833937528744464, guid: a9919fffcb88ebd439286ba4d69308d2,
+    type: 2}
+  gunnerPrefab: {fileID: 1784241727488526, guid: 601087ce502689a40a3f4652a97b4459,
+    type: 2}

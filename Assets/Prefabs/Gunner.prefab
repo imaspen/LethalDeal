@@ -52,6 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4144436048617540}
+  - component: {fileID: 114746487591432624}
   m_Layer: 0
   m_Name: Gunner
   m_TagString: Untagged
@@ -124,6 +125,38 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114746487591432624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784241727488526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 96
+    i1: 16
+    i2: 135
+    i3: 206
+    i4: 80
+    i5: 38
+    i6: 137
+    i7: 164
+    i8: 10
+    i9: 63
+    i10: 70
+    i11: 82
+    i12: 169
+    i13: 123
+    i14: 68
+    i15: 89
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!223 &223125641054957656
 Canvas:
   m_ObjectHideFlags: 1
