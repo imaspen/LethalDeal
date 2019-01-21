@@ -37,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4492984462418304}
+  - component: {fileID: 114768902506036902}
   m_Layer: 0
   m_Name: Dealer
   m_TagString: Untagged
@@ -79,6 +80,38 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114768902506036902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833937528744464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 169
+    i1: 145
+    i2: 159
+    i3: 255
+    i4: 203
+    i5: 136
+    i6: 235
+    i7: 212
+    i8: 57
+    i9: 40
+    i10: 107
+    i11: 164
+    i12: 214
+    i13: 147
+    i14: 8
+    i15: 210
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114888449221015728
 MonoBehaviour:
   m_ObjectHideFlags: 1
