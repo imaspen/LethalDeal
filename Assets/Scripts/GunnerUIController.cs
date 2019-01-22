@@ -6,15 +6,20 @@ using UnityEngine.UI;
 
 public class GunnerUIController : MonoBehaviour {
     private Text _timerText;
-    private Timer _timer;
+    private float _timer;
 	// Use this for initialization
 	void Start () {
         _timerText = GameObject.Find("Gunner/UI/Timer").GetComponent<Text>();
-        _timer = GameObject.Find("Gunner/UI/Timer").GetComponent<Timer>();
+		_timer = 60f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        _timerText.text = _timer.countdown.ToString("0.0");
+		_timer -= Time.deltaTime;
+	}
+
+	private void OnGUI()
+	{
+		_timerText.text = _timer.ToString("0.0");
 	}
 }
