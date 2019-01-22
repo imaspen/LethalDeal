@@ -8,12 +8,12 @@ public class DealerUIController : MonoBehaviour {
     private Text _hpCounter;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
         _hpCounter = GameObject.Find("Dealer/UI/Player HP").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void OnGUI() {
         _hpCounter.text = "29";
 	}
 }
