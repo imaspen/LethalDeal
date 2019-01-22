@@ -16,10 +16,6 @@ public class GunnerUIController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		_timer -= Time.deltaTime;
-	}
-
-	private void OnGUI()
-	{
 		_timerText.text = _timer.ToString("0.0");
 	}
 }
