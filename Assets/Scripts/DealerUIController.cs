@@ -13,7 +13,7 @@ public class DealerUIController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void OnGUI() {
+	void Update() {
         _hpCounter.text = "29";
 	}
 }
