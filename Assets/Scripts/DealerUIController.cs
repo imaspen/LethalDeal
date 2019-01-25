@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DealerUIController : MonoBehaviour {
+public class DealerUIController : UIController {
 
     private Text _hpCounter;
 
-	// Use this for initialization
-	void Start() {
+	protected override void Init()
+	{
         _hpCounter = GameObject.Find("UI/Player HP").GetComponent<Text>();
 	}
 	

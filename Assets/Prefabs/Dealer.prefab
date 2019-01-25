@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 223483465474826388}
   - component: {fileID: 114096414093567442}
   - component: {fileID: 114888449221015728}
-  - component: {fileID: 114538312581135214}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -56,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4492984462418304}
   - component: {fileID: 114768902506036902}
+  - component: {fileID: 114087623866836270}
   m_Layer: 0
   m_Name: Dealer
   m_TagString: Untagged
@@ -138,6 +138,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114087623866836270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833937528744464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49a188068dbb6b40b71139bf108af55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114096414093567442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,17 +170,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114538312581135214
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1547208092886924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49a188068dbb6b40b71139bf108af55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114768902506036902
 MonoBehaviour:
   m_ObjectHideFlags: 1
