@@ -13,7 +13,6 @@ public class NetworkManager : UnityEngine.Networking.NetworkManager {
 
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
-        base.OnServerAddPlayer(conn, playerControllerId);
         GameObject player;
         if (_gunner == null) player = _gunner = Instantiate(gunnerPrefab);
         else if (_dealer == null) player = _dealer = Instantiate(dealerPrefab);

@@ -9,7 +9,7 @@ public class GunnerUIController : MonoBehaviour {
     private float _timer;
 	// Use this for initialization
 	void Start () {
-        _timerText = GameObject.Find("Gunner/UI/Timer").GetComponent<Text>();
+        _timerText = GameObject.Find("UI/Timer").GetComponent<Text>();
 		_timer = 60f;
 	}
 	
