@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardHover : MonoBehaviour
+public class CardPeekController : MonoBehaviour
 {
 	private Animator _animator;
 	
