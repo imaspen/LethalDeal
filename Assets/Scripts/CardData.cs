@@ -12,13 +12,21 @@ public class CardData : MonoBehaviour
     public string Name
     {
         get { return _name; }
-        set { _name = value; }
+        set
+        {
+            _name = value;
+            BroadcastMessage("OnCardTextChanged");
+        }
     }
 
     public string Description
     {
         get { return _description; }
-        set { _description = value; }
+        set
+        {
+            _description = value;
+            BroadcastMessage("OnCardTextChanged");
+        }
     }
 
     private void Start()
@@ -31,5 +39,6 @@ public class CardData : MonoBehaviour
         JsonUtility.FromJsonOverwrite(
             Resources.Load<TextAsset>("Cards/" + cardName).text, this
         );
+        BroadcastMessage("OnCardTextChanged");
     }
 }
