@@ -5,16 +5,16 @@ using UnityEngine;
 [Serializable]
 public class CardData : MonoBehaviour
 {
-    [SerializeField] private string _name;
+    [SerializeField] private string _title;
 
     [SerializeField] private string _description;
 
-    public string Name
+    public string Title
     {
-        get { return _name; }
+        get { return _title; }
         set
         {
-            _name = value;
+            _title = value;
             BroadcastMessage("OnCardTextChanged");
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class CardTextController : MonoBehaviour
 {
     private CardData _cardData;
-    private TextMesh _cardName;
+    private TextMesh _cardTitle;
     private TextMesh _cardDescription;
 
     private void Start()
@@ -17,7 +17,7 @@ public class CardTextController : MonoBehaviour
         {
             if (cardTextPart.name == "Title")
             {
-                _cardName = cardTextPart;
+                _cardTitle = cardTextPart;
             }
             else
             {
@@ -29,7 +29,7 @@ public class CardTextController : MonoBehaviour
 
     private void OnCardTextChanged()
     {
-        _cardName.text = _cardData.Name;
+        _cardTitle.text = _cardData.Title;
         _cardDescription.text = _cardData.Description;
     }
 }
