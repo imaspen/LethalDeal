@@ -1,13 +1,11 @@
 using System;
-using System.IO;
 using UnityEngine;
 
 [Serializable]
 public class CardData : MonoBehaviour
 {
-    [SerializeField] private string _title;
-
     [SerializeField] private string _description;
+    [SerializeField] private string _title;
 
     public string Title
     {
