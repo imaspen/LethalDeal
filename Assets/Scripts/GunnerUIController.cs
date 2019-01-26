@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GunnerUIController : MonoBehaviour {
+public class GunnerUIController : UIController {
     private Text _timerText;
     private float _timer;
-	// Use this for initialization
-	void Start () {
-        _timerText = GameObject.Find("Gunner/UI/Timer").GetComponent<Text>();
+	
+	protected override void Init()
+	{
+		_timerText = GameObject.Find("UI/Timer").GetComponent<Text>();
 		_timer = 60f;
 	}
 	

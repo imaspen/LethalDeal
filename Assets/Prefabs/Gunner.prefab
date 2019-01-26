@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 223125641054957656}
   - component: {fileID: 114144441360600818}
   - component: {fileID: 114292503480172946}
-  - component: {fileID: 114575267239709330}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -106,7 +105,6 @@ GameObject:
   - component: {fileID: 224389224983074718}
   - component: {fileID: 222504438152656920}
   - component: {fileID: 114354203191329550}
-  - component: {fileID: 114568173413186734}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -158,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4144436048617540}
   - component: {fileID: 114746487591432624}
+  - component: {fileID: 114741346310675162}
   m_Layer: 0
   m_Name: Gunner
   m_TagString: Untagged
@@ -434,29 +433,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1:00
---- !u!114 &114568173413186734
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1430194068620042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be2a945c8cab5c049ba82e5ed78a9357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countdown: 60
---- !u!114 &114575267239709330
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1382420635070860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a65660c239aa704e951b7e65f755f51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114672855863916986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,6 +460,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114741346310675162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784241727488526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a65660c239aa704e951b7e65f755f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114746487591432624
 MonoBehaviour:
   m_ObjectHideFlags: 1
