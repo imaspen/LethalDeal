@@ -1,26 +1,29 @@
 ﻿using UnityEngine;
 
-public class CardTextController : MonoBehaviour
+namespace Card
 {
-    private CardData _cardData;
-    private TextMesh _cardDescription;
-    private TextMesh _cardTitle;
-
-    private void Start()
+    public class CardTextController : MonoBehaviour
     {
-        _cardData = GetComponent<CardData>();
-        var cardTextParts = GetComponentsInChildren<TextMesh>();
-        foreach (var cardTextPart in cardTextParts)
-            if (cardTextPart.name == "Title")
-                _cardTitle = cardTextPart;
-            else
-                _cardDescription = cardTextPart;
-        OnCardTextChanged();
-    }
+        private CardData _cardData;
+        private TextMesh _cardDescription;
+        private TextMesh _cardTitle;
 
-    private void OnCardTextChanged()
-    {
-        _cardTitle.text = _cardData.Title;
-        _cardDescription.text = _cardData.Description;
+        private void Start()
+        {
+            _cardData = GetComponent<CardData>();
+            var cardTextParts = GetComponentsInChildren<TextMesh>();
+            foreach (var cardTextPart in cardTextParts)
+                if (cardTextPart.name == "Title")
+                    _cardTitle = cardTextPart;
+                else
+                    _cardDescription = cardTextPart;
+            OnCardTextChanged();
+        }
+
+        private void OnCardTextChanged()
+        {
+            _cardTitle.text = _cardData.Title;
+            _cardDescription.text = _cardData.Description;
+        }
     }
 }

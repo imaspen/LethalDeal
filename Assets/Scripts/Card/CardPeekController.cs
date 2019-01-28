@@ -1,23 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CardPeekController : MonoBehaviour
+namespace Card
 {
-	private Animator _animator;
-	
-	private void Start()
+	public class CardPeekController : MonoBehaviour
 	{
-		_animator = GetComponentInChildren<Animator>();
-	}
+		private Animator _animator;
 	
-	private void OnMouseEnter()
-	{
-		_animator.SetBool("MouseOver", true);
-	}
+		private void Start()
+		{
+			_animator = GetComponentInChildren<Animator>();
+		}
+	
+		private void OnMouseEnter()
+		{
+			_animator.SetBool("MouseOver", true);
+		}
 
-	private void OnMouseExit()
-	{
-		_animator.SetBool("MouseOver", false);
+		private void OnMouseExit()
+		{
+			_animator.SetBool("MouseOver", false);
+		}
 	}
 }

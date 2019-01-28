@@ -1,40 +1,41 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
+using UnityEngine;
 
-[System.Serializable]
-public class Boundary
+namespace Attacker
 {
-    public float xMin, xMax, yMin, yMax;
-}
-
-public class AttackerController : MonoBehaviour
-{
-    public float speed;
-    public float tilt;
-    public Boundary boundary;
-
-    private Rigidbody2D rb;
-
-    void Start()
+    [Serializable]
+    public class Boundary
     {
-        rb =  GetComponent<Rigidbody2D>();
+        public float xMin, xMax, yMin, yMax;
     }
 
-    void FixedUpdate()
+    public class AttackerController : MonoBehaviour
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        public Boundary boundary;
 
-        Vector3 movement = new Vector3(moveHorizontal, moveVertical);
-        rb.velocity = movement * speed;
+        private Rigidbody2D rb;
+        public float speed;
+        public float tilt;
 
-     //   rb.position = new Vector3
-       // (
-         //   Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
-           // 0.0f,
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void FixedUpdate()
+        {
+            var moveHorizontal = Input.GetAxis("Horizontal");
+            var moveVertical = Input.GetAxis("Vertical");
+
+            var movement = new Vector3(moveHorizontal, moveVertical);
+            rb.velocity = movement * speed;
+
+            //   rb.position = new Vector3
+            // (
+            //   Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
+            // 0.0f,
             //Mathf.Clamp(rb.position.y, boundary.yMin, boundary.yMax)
-   //     );
-
- 
+            //     );
+        }
     }
 }
