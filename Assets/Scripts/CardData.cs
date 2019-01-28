@@ -6,6 +6,7 @@ public class CardData : MonoBehaviour
 {
     [SerializeField] private string _description;
     [SerializeField] private string _title;
+    [SerializeField] private GameObject _spawns;
 
     public string Title
     {
@@ -25,6 +26,12 @@ public class CardData : MonoBehaviour
             _description = value;
             BroadcastMessage("OnCardTextChanged");
         }
+    }
+
+    public GameObject Spawns
+    {
+        get { return _spawns; }
+        set { _spawns = value; }
     }
 
     private void Start()

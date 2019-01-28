@@ -1,4 +1,5 @@
 {
-  "_title": "Card Name",
-  "_description": "Card Description"
+  "_title": "Card",
+  "_description": "Spawns a\nCard",
+  "_spawns": {"instanceID":10248}
 }
