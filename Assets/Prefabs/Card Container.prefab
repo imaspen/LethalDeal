@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114449633710244454}
   - component: {fileID: 114769676090945406}
   - component: {fileID: 114194714778290296}
+  - component: {fileID: 114781448345464590}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -306,8 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4518219614c4832a78c7cb5a67cd3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
   _description: 
+  _title: 
 --- !u!114 &114449633710244454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,6 +331,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21515ef5b8250c446889d357557383aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114781448345464590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1572028462670028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85adeda0ac95d174284a22dc551f4bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DistanceToPlay: 1
 --- !u!212 &212087979800937634
 SpriteRenderer:
   m_ObjectHideFlags: 1
