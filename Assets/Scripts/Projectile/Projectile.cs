@@ -19,6 +19,7 @@ namespace Projectile
         void Start()
         {
             //cache the initial size of a project as it is spawned
+            
             InitialSize = gameObject.transform.localScale;
             ElapsedTimeAlive = 0.0f;
         }
