@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DealerUIController : UIController {
 
     private Text _hpCounter;
+    private Text _timerText;
+    private TimerController _timer;
 
 	protected override void Init()
 	{
         _hpCounter = GameObject.Find("UI/Player HP").GetComponent<Text>();
+        _timerText = GameObject.Find("UI/Timer").GetComponent<Text>();
+        _timer = GameObject.Find("/GameController").GetComponent<TimerController>();
 	}
 	
 	// Update is called once per frame
 	void Update() {
-        _hpCounter.text = "29";
+        if (!isLocalPlayer) return;
+        _timerText.text = _timer.TimeRemaining.ToString("0.0");
 	}
 }
