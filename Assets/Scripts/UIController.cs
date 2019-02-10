@@ -5,12 +5,15 @@ using UnityEngine.Networking;
 
 public abstract class UIController : NetworkBehaviour {
 
-	// Use this for initialization
-	protected virtual void Start ()
-	{
-		if (!isLocalPlayer) gameObject.SetActive(false);
-		else Init();
-	}
+    // Use this for initialization
+    protected virtual void Start()
+    {
+        //if (!isLocalPlayer) gameObject.SetActive(false);
+        //else 
+  
+        Init();
+    }
 
-	protected abstract void Init();
+    protected abstract void Init();
+
 }
