@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Attacker
 {
 	public class GunnerUIController : UIController {
 		private Text _timerText;
-		private float _timer;
+		private TimerController _timer;
 	
 		protected override void Init()
 		{
 			_timerText = GameObject.Find("UI/Timer").GetComponent<Text>();
-			_timer = 60f;
+            _timer = GameObject.Find("GameController").GetComponent<TimerController>();
 		}
 	
 		// Update is called once per frame
 		void Update () {
-			_timer -= Time.deltaTime;
-			_timerText.text = _timer.ToString("0.0");
-		}
+            if (!isLocalPlayer) return;
+            if (_timer.TimeRemaining < 0) SceneManager.LoadScene("Game Over");
+			_timerText.text = _timer.TimeRemaining.ToString("0.0");
+        }
 	}
 }
