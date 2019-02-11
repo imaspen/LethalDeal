@@ -8,7 +8,7 @@ namespace Card
     {
         [SerializeField] private string _description;
         [SerializeField] private string _title;
-        [SerializeField] private GameObject _spawns;
+        [SerializeField] private string _spawns;
 
         public string Title
         {
@@ -30,7 +30,7 @@ namespace Card
             }
         }
 
-        public GameObject Spawns
+        public string Spawns
         {
             get { return _spawns; }
             set { _spawns = value; }
