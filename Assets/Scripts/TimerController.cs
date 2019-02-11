@@ -8,9 +8,6 @@ public class TimerController : NetworkBehaviour
 {
     public float GameLength;
 
-    private NetworkIdentity _networkIdentity;
-    private UnityEngine.Networking.NetworkManager _networkManager;
-
     [SyncVar] private float _timer;
 
     public float TimeRemaining
@@ -23,8 +20,6 @@ public class TimerController : NetworkBehaviour
     void Start()
     {
         TimeRemaining = GameLength;
-        _networkIdentity = GetComponent<NetworkIdentity>();
-        _networkManager = UnityEngine.Networking.NetworkManager.singleton;
     }
 
     // Update is called once per frame
@@ -34,23 +29,8 @@ public class TimerController : NetworkBehaviour
         {
             TimeRemaining -= Time.deltaTime;
         }
-
-#if !UNITY_EDITOR
-        Debug.Log("ayo");
+        
         if (!(TimeRemaining <= 0)) return;
-        _networkManager.offlineScene = "Game Over";
-        if (_networkIdentity.isServer && _networkIdentity.isClient)
-        {
-            _networkManager.StopHost();
-        }
-        else if (_networkIdentity.isServer)
-        {
-            _networkManager.StopServer();
-        }
-        else
-        {
-            _networkManager.StopClient();
-        }
-#endif
+        GameObject.Find("/GameController").GetComponent<GameManagerController>().EndGame();
     }
 }
