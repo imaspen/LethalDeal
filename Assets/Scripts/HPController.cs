@@ -7,6 +7,11 @@ public class HPController : MonoBehaviour {
 
     private int _currentHP;
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P)) takeDamage(5);
+    }
+
     public void Start()
     {
         _currentHP = MaxHP;
