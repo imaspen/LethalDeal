@@ -18,7 +18,6 @@ namespace Attacker
 		// Update is called once per frame
 		void Update () {
             if (!isLocalPlayer) return;
-            if (_timer.TimeRemaining < 0) SceneManager.LoadScene("Game Over");
 			_timerText.text = _timer.TimeRemaining.ToString("0.0");
         }
 	}

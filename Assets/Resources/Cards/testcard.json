@@ -1,5 +1,5 @@
 {
   "_title": "Card",
   "_description": "Spawns a\nCard",
-  "_spawns": {"instanceID":10248}
+  "_spawns": "DefaultShip"
 }

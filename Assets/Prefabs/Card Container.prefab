@@ -309,7 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _description: 
   _title: 
-  _spawns: {fileID: 0}
+  _spawns: 
 --- !u!114 &114449633710244454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -344,6 +344,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceToPlay: 1
+  EnemyPrefab: {fileID: 1333476994071504, guid: a4f5274ff22b23f4d9524605b78ad9f9,
+    type: 2}
 --- !u!212 &212087979800937634
 SpriteRenderer:
   m_ObjectHideFlags: 1

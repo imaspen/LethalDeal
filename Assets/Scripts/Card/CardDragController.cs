@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Projectile;
+using UnityEngine;
 
 namespace Card
 {
@@ -6,13 +7,14 @@ namespace Card
     {
         private Animator _animator;
         private CardData _cardData;
-        
+
         private bool _isDragging;
         private Vector3 _mouseOffset;
 
         private Vector3 _startPosition;
-    
+
         public float DistanceToPlay;
+        public GameObject EnemyPrefab;
 
         private void Start()
         {
@@ -27,7 +29,8 @@ namespace Card
             _startPosition = transform.parent.position;
             if (Camera.main != null)
                 _mouseOffset = _startPosition -
-                               Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
+                               Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
+                                   Input.mousePosition.y));
         }
 
         private void OnMouseUp()
@@ -51,7 +54,9 @@ namespace Card
 
         private void DoCard()
         {
-            Instantiate(_cardData.Spawns);
+            var enemy = Instantiate(EnemyPrefab);
+            JsonUtility.FromJsonOverwrite(Resources.Load<TextAsset>("Enemies/" + _cardData.Spawns).text,
+                enemy.GetComponent<ProjectileEmitter>());
             Destroy(transform.parent.gameObject);
         }
     }
