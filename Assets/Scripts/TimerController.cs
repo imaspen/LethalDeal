@@ -6,15 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class TimerController : NetworkBehaviour
 {
-    public float gameLength;
+    public float GameLength;
 
-    private NetworkIdentity networkIdentity;
-    private NetworkManager networkManager;
+    private NetworkIdentity _networkIdentity;
+    private UnityEngine.Networking.NetworkManager _networkManager;
 
-    [SyncVar]
-    private float _timer;
+    [SyncVar] private float _timer;
 
-    public float TimeRemaining {
+    public float TimeRemaining
+    {
         get { return _timer; }
         private set { _timer = value; }
     }
@@ -22,9 +22,9 @@ public class TimerController : NetworkBehaviour
     // Use this for initialization
     void Start()
     {
-        TimeRemaining = gameLength;
-        NetworkIdentity networkIdentity = GetComponent<NetworkIdentity>();
-        UnityEngine.Networking.NetworkManager networkManager = UnityEngine.Networking.NetworkManager.singleton;
+        TimeRemaining = GameLength;
+        _networkIdentity = GetComponent<NetworkIdentity>();
+        _networkManager = UnityEngine.Networking.NetworkManager.singleton;
     }
 
     // Update is called once per frame
@@ -34,22 +34,23 @@ public class TimerController : NetworkBehaviour
         {
             TimeRemaining -= Time.deltaTime;
         }
-        if (TimeRemaining <= 0)
-        {
-            if (networkIdentity.isServer && networkIdentity.isClient)
-            {
-                networkManager.StopHost();
-            }
-            else if (networkIdentity.isServer)
-            {
-                networkManager.StopServer();
-            }
-            else
-            {
-                networkManager.StopClient();
-            }
-        }
-    }
 
-    
+#if !UNITY_EDITOR
+        Debug.Log("ayo");
+        if (!(TimeRemaining <= 0)) return;
+        _networkManager.offlineScene = "Game Over";
+        if (_networkIdentity.isServer && _networkIdentity.isClient)
+        {
+            _networkManager.StopHost();
+        }
+        else if (_networkIdentity.isServer)
+        {
+            _networkManager.StopServer();
+        }
+        else
+        {
+            _networkManager.StopClient();
+        }
+#endif
+    }
 }

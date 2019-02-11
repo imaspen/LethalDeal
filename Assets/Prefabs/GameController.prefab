@@ -84,4 +84,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d498d5cce6e8341a83ac8e1195a778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLength: 10
+  GameLength: 60
