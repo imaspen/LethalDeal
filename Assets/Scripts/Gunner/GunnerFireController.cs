@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Gunner
 {
@@ -8,11 +9,18 @@ namespace Gunner
         public Transform FirePoint;
         public GameObject BulletPrefab;
         public float Period;
+
+        private NetworkIdentity _networkIdentity;
         private float _cooldown;
 
+        private void Start()
+        {
+            _networkIdentity = GetComponent<NetworkIdentity>();
+        }
+        
         private void Update()
         {
-            if (Input.GetButton("Fire1") && _cooldown <= 0)
+            if (_networkIdentity.hasAuthority && Input.GetButton("Fire1") && _cooldown <= 0)
             {
                 _cooldown = Period;
                 Shoot();

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Gunner
 {
@@ -14,16 +15,20 @@ namespace Gunner
         public Boundary boundary;
 
         private Rigidbody2D rb;
+        private NetworkIdentity _networkIdentity;
+        
         public float speed;
         public float tilt;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            _networkIdentity = GetComponent<NetworkIdentity>();
         }
 
         private void FixedUpdate()
         {
+            if (!_networkIdentity.hasAuthority) return;
             var moveHorizontal = Input.GetAxis("Horizontal");
             var moveVertical = Input.GetAxis("Vertical");
 

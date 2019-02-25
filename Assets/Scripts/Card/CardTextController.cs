@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Card
 {
@@ -17,7 +18,11 @@ namespace Card
                     _cardTitle = cardTextPart;
                 else
                     _cardDescription = cardTextPart;
-            OnCardTextChanged();
+            try
+            {
+                OnCardTextChanged();
+            }
+            catch (NullReferenceException e) {}
         }
 
         private void OnCardTextChanged()
