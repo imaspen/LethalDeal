@@ -33,7 +33,7 @@ namespace Dealer
 			_spawningController.CmdSpawnEnemy(cardData.Spawns);
 			Cooldown = 2f;
 			AddCardToHand(Mathf.FloorToInt(5 - zPos));
-			Destroy(cardData.gameObject);
+			NetworkServer.Destroy(cardData.gameObject);
 		}
 
 		public void AddCardToHand(int position)

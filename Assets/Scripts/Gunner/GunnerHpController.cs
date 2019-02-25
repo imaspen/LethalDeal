@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Attacker
+namespace Gunner
 {
-    public class PlayerHpController : HPController
+    public class GunnerHpController : HPController
     {
         protected override void Die()
         {
