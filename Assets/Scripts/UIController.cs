@@ -3,14 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public abstract class UIController : NetworkBehaviour {
+public abstract class UIController : MonoBehaviour
+{
+    private NetworkIdentity _networkIdentity;
 
-	// Use this for initialization
-	protected virtual void Start ()
-	{
-		if (!isLocalPlayer) GameObject.Find("UI").SetActive(false);
-		else Init();
-	}
+    // Use this for initialization
+    protected void Start()
+    {
+        _networkIdentity = transform.parent.GetComponent<NetworkIdentity>();
+        Init();
+    }
 
-	protected abstract void Init();
+    protected abstract void Init();
+
+    protected virtual void Update()
+    {
+        if (!_networkIdentity.isLocalPlayer)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
