@@ -16,7 +16,7 @@ namespace Gunner
 
         private Rigidbody2D rb;
         private NetworkIdentity _networkIdentity;
-        
+
         public float speed;
         public float tilt;
 
@@ -35,12 +35,12 @@ namespace Gunner
             var movement = new Vector3(moveHorizontal, moveVertical);
             rb.velocity = movement * speed;
 
-            //   rb.position = new Vector3
-            // (
-            //   Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
-            // 0.0f,
-            //Mathf.Clamp(rb.position.y, boundary.yMin, boundary.yMax)
-            //     );
+            rb.position = new Vector3
+            (
+                Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
+                Mathf.Clamp(rb.position.y, boundary.yMin, boundary.yMax),
+                0.0f
+            );
         }
     }
 }

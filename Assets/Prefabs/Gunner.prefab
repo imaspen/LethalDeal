@@ -546,10 +546,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boundary:
-    xMin: -3
-    xMax: 3
-    yMin: 0
-    yMax: 0
+    xMin: -4
+    xMax: 4
+    yMin: -4
+    yMax: 4
   speed: 10
   tilt: 0
 --- !u!114 &114960409944340440
