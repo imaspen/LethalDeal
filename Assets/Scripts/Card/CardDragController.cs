@@ -1,29 +1,35 @@
-﻿using Projectile;
+﻿using Dealer;
+using Projectile;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Card
 {
     public class CardDragController : MonoBehaviour
     {
         private Animator _animator;
-        private CardData _cardData;
-
+        private DealerHandController _dealerHandController;
+        private NetworkIdentity _networkIdentity;
+        
         private bool _isDragging;
         private Vector3 _mouseOffset;
 
         private Vector3 _startPosition;
 
         public float DistanceToPlay;
-        public GameObject EnemyPrefab;
 
         private void Start()
         {
+            transform.parent.SetParent(GameObject.Find("Hand").transform);
+            _networkIdentity = transform.parent.GetComponent<NetworkIdentity>();
+            if (!_networkIdentity.hasAuthority) return;
             _animator = GetComponent<Animator>();
-            _cardData = GetComponent<CardData>();
+            _dealerHandController = transform.parent.parent.gameObject.GetComponent<DealerHandController>();
         }
 
         private void OnMouseDown()
         {
+            if (!_networkIdentity.hasAuthority) return;
             _animator.SetBool("MouseDragging", true);
             _isDragging = true;
             _startPosition = transform.parent.position;
@@ -35,16 +41,17 @@ namespace Card
 
         private void OnMouseUp()
         {
+            if (!_networkIdentity.hasAuthority) return;
             _animator.SetBool("MouseDragging", false);
             _isDragging = false;
             if (transform.parent.position.y > _startPosition.y + DistanceToPlay)
-                DoCard();
-            else
-                transform.parent.position = _startPosition;
+                _dealerHandController.PlayCard(transform.parent.GetComponent<CardData>(), _startPosition.z);
+            ResetCard();
         }
 
         private void OnMouseDrag()
         {
+            if (!_networkIdentity.hasAuthority) return;
             if (!_isDragging) return;
             if (Camera.main == null) return;
             var mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y)) +
@@ -52,12 +59,9 @@ namespace Card
             transform.parent.position = mousePos;
         }
 
-        private void DoCard()
+        private void ResetCard()
         {
-            var enemy = Instantiate(EnemyPrefab);
-            JsonUtility.FromJsonOverwrite(Resources.Load<TextAsset>("Enemies/" + _cardData.Spawns).text,
-                enemy.GetComponent<ProjectileEmitter>());
-            Destroy(transform.parent.gameObject);
+            transform.parent.position = _startPosition;
         }
     }
 }

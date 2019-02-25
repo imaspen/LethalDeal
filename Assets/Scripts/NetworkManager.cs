@@ -7,6 +7,9 @@ public class NetworkManager : UnityEngine.Networking.NetworkManager {
 
     public GameObject dealerPrefab;
     public GameObject gunnerPrefab;
+    
+    public NetworkConnection DealerConnection { get; private set; }
+    public NetworkConnection GunnerConnection { get; private set; }
 
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
@@ -16,9 +19,11 @@ public class NetworkManager : UnityEngine.Networking.NetworkManager {
         {
             case 1:
                 player = Instantiate(gunnerPrefab);
+                GunnerConnection = conn;
                 break;
             case 2:
                 player = Instantiate(dealerPrefab);
+                DealerConnection = conn;
                 break;
             default:
                 return;

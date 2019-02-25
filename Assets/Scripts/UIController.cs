@@ -8,7 +8,7 @@ public abstract class UIController : NetworkBehaviour {
 	// Use this for initialization
 	protected virtual void Start ()
 	{
-		if (!isLocalPlayer) gameObject.SetActive(false);
+		if (!isLocalPlayer) GameObject.Find("UI").SetActive(false);
 		else Init();
 	}
 

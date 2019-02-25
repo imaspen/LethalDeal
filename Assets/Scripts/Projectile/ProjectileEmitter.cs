@@ -1,21 +1,22 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Projectile
 {
     [Serializable]
-    public class ProjectileEmitter : MonoBehaviour
+    public class ProjectileEmitter : NetworkBehaviour
     {
         private int _shotsFired;
         private int _elapsedFrames;
         private Vector3 _emitterDirection;
 
-        public int MaxShots;
-        public float StartingRotation;
-        public float RotationPerShot; //degrees per second
-        public int FixedUpdatesPerShot; //# of emits per second
-        public float ProjectileInitialSpeed;
-        public GameObject ProjectilePrefab;
+        [SyncVar] public int MaxShots;
+        [SyncVar] public float StartingRotation;
+        [SyncVar] public float RotationPerShot; //degrees per second
+        [SyncVar] public int FixedUpdatesPerShot; //# of emits per second
+        [SyncVar] public float ProjectileInitialSpeed;
+        [SyncVar] public GameObject ProjectilePrefab;
 
         // Use this for initialization
         private void Start()
@@ -27,7 +28,6 @@ namespace Projectile
         {
             if (_elapsedFrames % FixedUpdatesPerShot == 0 && _shotsFired <= MaxShots)
             {
-                Debug.Log(_elapsedFrames);
                 var toShoot = 1;
                 if (FixedUpdatesPerShot == 0) toShoot = MaxShots;
                 for (var i = 0; i < toShoot; i++)

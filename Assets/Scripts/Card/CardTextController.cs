@@ -10,7 +10,7 @@ namespace Card
 
         private void Start()
         {
-            _cardData = GetComponent<CardData>();
+            _cardData = transform.parent.GetComponent<CardData>();
             var cardTextParts = GetComponentsInChildren<TextMesh>();
             foreach (var cardTextPart in cardTextParts)
                 if (cardTextPart.name == "Title")

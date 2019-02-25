@@ -1,14 +1,15 @@
 using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Card
 {
     [Serializable]
-    public class CardData : MonoBehaviour
+    public class CardData : NetworkBehaviour
     {
-        [SerializeField] private string _description;
-        [SerializeField] private string _title;
-        [SerializeField] private string _spawns;
+        [SyncVar] [SerializeField] private string _description;
+        [SyncVar] [SerializeField] private string _title;
+        [SyncVar] [SerializeField] private string _spawns;
 
         public string Title
         {
@@ -34,11 +35,6 @@ namespace Card
         {
             get { return _spawns; }
             set { _spawns = value; }
-        }
-
-        private void Start()
-        {
-            LoadJson("testcard");
         }
 
         public void LoadJson(string cardName)
