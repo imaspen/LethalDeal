@@ -9,6 +9,7 @@ namespace Projectile
     {
         private int _shotsFired;
         private int _elapsedFrames;
+        private int _toShoot;
         private Vector3 _emitterDirection;
 
         [SyncVar] public int MaxShots;
@@ -21,22 +22,25 @@ namespace Projectile
         // Use this for initialization
         private void Start()
         {
+            _toShoot = FixedUpdatesPerShot == 0 ? MaxShots : 1;
             _emitterDirection = Quaternion.AngleAxis(StartingRotation, new Vector3(0.0f, 0.0f, 1.0f)) * transform.up;
         }
 
         private void FixedUpdate()
         {
-            if (_elapsedFrames % FixedUpdatesPerShot == 0 && _shotsFired <= MaxShots)
+            if (!isServer) return;
+            if (_elapsedFrames % FixedUpdatesPerShot == 0 && _shotsFired < MaxShots)
             {
-                var toShoot = 1;
-                if (FixedUpdatesPerShot == 0) toShoot = MaxShots;
-                for (var i = 0; i < toShoot; i++)
+                for (var i = 0; i < _toShoot; i++)
                 {
+                    print(_shotsFired);
+                    
                     var projectileSpawn = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
                     var rotation = Quaternion.AngleAxis(RotationPerShot, new Vector3(0.0f, 0.0f, 1.0f));
-    
-                    projectileSpawn.GetComponent<Projectile>().Velocity = _emitterDirection * ProjectileInitialSpeed;
+                    projectileSpawn.GetComponent<Rigidbody2D>().velocity = _emitterDirection * ProjectileInitialSpeed;
                     _emitterDirection = rotation * _emitterDirection;
+                    NetworkServer.Spawn(projectileSpawn);
+    
                     if (MaxShots > 0) _shotsFired++;
                 }
             }

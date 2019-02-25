@@ -22,13 +22,14 @@ GameObject:
   - component: {fileID: 212530901164832462}
   - component: {fileID: 114315955023936298}
   - component: {fileID: 114663406466427282}
-  - component: {fileID: 114339717036907582}
-  - component: {fileID: 114049069591211220}
   - component: {fileID: 50174657242248760}
   - component: {fileID: 61726273814185914}
+  - component: {fileID: 114339717036907582}
+  - component: {fileID: 114049069591211220}
+  - component: {fileID: 114320639111288218}
   m_Layer: 0
   m_Name: Enemy Ship
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +136,18 @@ MonoBehaviour:
     i15: 249
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114320639111288218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333476994071504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a054cc546767601409f643012f6cd64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHP: 2
 --- !u!114 &114339717036907582
 MonoBehaviour:
   m_ObjectHideFlags: 1

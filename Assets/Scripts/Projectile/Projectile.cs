@@ -1,46 +1,43 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Projectile
 {
-    public class Projectile : MonoBehaviour
+    public class Projectile : NetworkBehaviour
     {
 
-        public float MaxLifeTime;
+        [SyncVar] public float MaxLifeTime;
+        [SyncVar] public Vector3 MaxSize;
 
-        public Vector3 Velocity { get; set; }
-
-        public Vector3 MaxSize;
-
-        private Vector3 InitialSize;
-
-        private float ElapsedTimeAlive;
+        private Vector3 _initialSize;
+        private float _elapsedTimeAlive;
+        private Collider2D _collider2D;
 
         // Use this for initialization
         void Start()
         {
             //cache the initial size of a project as it is spawned
             
-            InitialSize = gameObject.transform.localScale;
-            ElapsedTimeAlive = 0.0f;
+            _initialSize = gameObject.transform.localScale;
+            _elapsedTimeAlive = 0.0f;
         }
 
         // Use fixed update to compute the position of a projectile at a fixed interval
         void FixedUpdate()
         {
-            float dt = Time.fixedDeltaTime;
+            var scale = _initialSize + MaxSize * Mathf.Sin(_elapsedTimeAlive / MaxLifeTime * Mathf.PI);
+            transform.localScale = scale;
+            _elapsedTimeAlive += Time.fixedDeltaTime;
 
-            transform.position = transform.position + Velocity * dt;
+            if (_elapsedTimeAlive > MaxLifeTime && isServer)
+                NetworkServer.Destroy(gameObject);
+        }
 
-            Vector3 Scale = InitialSize + MaxSize * Mathf.Sin(ElapsedTimeAlive / MaxLifeTime * Mathf.PI);
-
-            transform.localScale = Scale;
-            transform.position = transform.position + this.Velocity * dt;
-            ElapsedTimeAlive += dt;
-
-            if (ElapsedTimeAlive > MaxLifeTime)
-            {
-                Destroy(gameObject);
-            }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag(gameObject.tag) || other.gameObject.CompareTag("Card")) return;
+            other.GetComponent<HPController>().TakeDamage(1);
+            Destroy(gameObject);
         }
     }
 }

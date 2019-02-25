@@ -1,31 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HPController : MonoBehaviour {
+public abstract class HPController : MonoBehaviour
+{
     public int MaxHP;
 
-    private int _currentHP;
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P)) takeDamage(5);
-    }
+    public int HP { get; private set; }
 
     public void Start()
     {
-        _currentHP = MaxHP;
+        HP = MaxHP;
     }
 
-    public void takeDamage(int amount)
+    public void TakeDamage(int amount)
     {
-        _currentHP -= amount;
-        if (_currentHP > 0) return;
-        Die();
+        HP -= amount;
+        if (HP <= 0) Die();
     }
 
-    protected virtual void Die()
-    {
-        Destroy(gameObject);
-    }
+    protected abstract void Die();
 }

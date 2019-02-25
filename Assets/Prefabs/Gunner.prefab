@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 114048337434284932}
   m_Layer: 0
   m_Name: Gunner
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b640a949dc8284eaeec4a52ed3274b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 20
+  MaxHP: 5
 --- !u!114 &114741346310675162
 MonoBehaviour:
   m_ObjectHideFlags: 1
