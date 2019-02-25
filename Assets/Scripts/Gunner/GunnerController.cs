@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Attacker
+namespace Gunner
 {
     [Serializable]
     public class Boundary
@@ -9,7 +9,7 @@ namespace Attacker
         public float xMin, xMax, yMin, yMax;
     }
 
-    public class AttackerController : MonoBehaviour
+    public class GunnerController : MonoBehaviour
     {
         public Boundary boundary;
 

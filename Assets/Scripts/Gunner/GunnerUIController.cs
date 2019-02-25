@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Attacker
+namespace Gunner
 {
 	public class GunnerUIController : UIController {
 		private Text _timerText;
