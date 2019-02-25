@@ -14,10 +14,8 @@ namespace Projectile
         private Collider2D _collider2D;
 
         // Use this for initialization
-        void Start()
+        private void Start()
         {
-            //cache the initial size of a project as it is spawned
-            
             _initialSize = gameObject.transform.localScale;
             _elapsedTimeAlive = 0.0f;
         }
@@ -35,6 +33,7 @@ namespace Projectile
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (!isServer) return;
             if (other.gameObject.CompareTag(gameObject.tag) || other.gameObject.CompareTag("Card")) return;
             other.GetComponent<HPController>().TakeDamage(1);
             Destroy(gameObject);
