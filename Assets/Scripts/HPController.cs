@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
-public abstract class HPController : MonoBehaviour
+public abstract class HPController : NetworkBehaviour
 {
+    [SyncVar] private int _hp;
+    
     public int MaxHP;
 
-    public int HP { get; private set; }
+    public int HP
+    {
+        get { return _hp; }
+        private set { _hp = value; }
+    }
 
     public void Start()
     {
