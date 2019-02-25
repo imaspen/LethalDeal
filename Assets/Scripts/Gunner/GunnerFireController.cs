@@ -3,7 +3,7 @@ using UnityEngine.Networking;
 
 namespace Gunner
 {
-    public class GunnerFireController : MonoBehaviour
+    public class GunnerFireController : NetworkBehaviour
     {
 
         public Transform FirePoint;
@@ -35,6 +35,13 @@ namespace Gunner
             var angle = Mathf.Atan2(position.y - mousePos.y, position.x - mousePos.x) * Mathf.Rad2Deg;
             var bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, angle) * new Vector2(-3, 0);
+            CmdSpawnBullet(bullet);
+        }
+
+        [Command]
+        private void CmdSpawnBullet(GameObject bullet)
+        {
+            NetworkServer.Spawn(bullet);
         }
     }
 }
