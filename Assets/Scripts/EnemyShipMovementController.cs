@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class EnemyShipMovementController : MonoBehaviour
+public class EnemyShipMovementController : NetworkBehaviour
 {
+	private NetworkIdentity _networkIdentity;
+	
 	public float ShipSpeed;
 
-	// Update is called once per frame
-	void Update ()
+	private void Start()
 	{
-		transform.position = new Vector3(
-			transform.position.x,
-			transform.position.y + ShipSpeed,
-			transform.position.z
-		);
+		_networkIdentity = GetComponent<NetworkIdentity>();
+		GetComponent<Rigidbody2D>().velocity = new Vector2(0, ShipSpeed);
 	}
+
+//	private void Update ()
+//	{
+//		if (!_networkIdentity.isServer) return;
+//		transform.position = new Vector3(
+//			transform.position.x,
+//			transform.position.y + ShipSpeed,
+//			transform.position.z
+//		);
+//	}
 }
