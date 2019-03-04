@@ -1,0 +1,8 @@
+{
+  "MaxShots": 0,
+  "StartingRotation": 0,
+  "FixedUpdatesPerShot": 50,
+  "ProjectileInitialSpeed": 2.0,
+  "SpreadAngle": 90,
+  "ShotsInSpread": 6
+}

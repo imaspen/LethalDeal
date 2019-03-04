@@ -30,7 +30,7 @@ namespace Dealer
 		public void PlayCard(CardData cardData, float zPos)
 		{
 			if (Cooldown > 0) return;
-			_spawningController.CmdSpawnEnemy(cardData.Spawns);
+			_spawningController.CmdSpawnEnemy(cardData.Spawns, cardData.Emitter);
 			Cooldown = 2f;
 			AddCardToHand(Mathf.FloorToInt(5 - zPos));
 			NetworkServer.Destroy(cardData.gameObject);

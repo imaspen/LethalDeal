@@ -1,5 +1,6 @@
 {
   "_title": "Card",
   "_description": "Spawns a\nCard",
-  "_spawns": "DefaultShip"
+  "_spawns": "Shotgunner",
+  "_emitter": "DelayedRotating"
 }
