@@ -1,6 +1,6 @@
 {
   "MaxShots": 0,
-  "StartingRotation": 180,
+  "StartingRotation": 0,
   "RotationPerShot": 0,
   "FixedUpdatesPerShot": 10,
   "ProjectileInitialSpeed": 4.0

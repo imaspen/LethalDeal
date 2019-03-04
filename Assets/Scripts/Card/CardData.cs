@@ -10,6 +10,7 @@ namespace Card
         [SyncVar] [SerializeField] private string _description;
         [SyncVar] [SerializeField] private string _title;
         [SyncVar] [SerializeField] private string _spawns;
+        [SyncVar] [SerializeField] private string _emitter;
 
         public string Title
         {
@@ -35,6 +36,12 @@ namespace Card
         {
             get { return _spawns; }
             set { _spawns = value; }
+        }
+
+        public string Emitter
+        {
+            get { return _emitter; }
+            set { _emitter = value; }
         }
 
         public void LoadJson(string cardName)

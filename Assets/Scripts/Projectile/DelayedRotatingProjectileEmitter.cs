@@ -12,11 +12,7 @@ namespace Projectile
         private int _toShoot;
         private Vector3 _emitterDirection;
 
-        public int MaxShots;
-        public float StartingRotation;
         public float RotationPerShot; //degrees per second
-        public int FixedUpdatesPerShot; //# of emits per second
-        public float ProjectileInitialSpeed;
         
         // Use this for initialization
         private void Start()
