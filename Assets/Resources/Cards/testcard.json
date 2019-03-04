@@ -1,5 +1,5 @@
 {
   "_title": "Card",
   "_description": "Spawns a\nCard",
-  "_spawns": "DefaultShip"
+  "_spawns": "StraightShooter"
 }

@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: c100aeafea02e0442a8166eeb46bfdfc
-timeCreated: 1548698299
+timeCreated: 1551709143
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ProjectilePrefab: {fileID: 1001283330953044, guid: 28953233fdf205645a1ff718eee96280,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

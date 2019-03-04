@@ -10,6 +10,7 @@ namespace Dealer
 	{
 		public GameObject CardPrefab;
 		public GameObject EnemyPrefab;
+		public GameObject EnemyProjectilePrefab;
 		
 		[Command]
 		public void CmdSpawnCard(string cardName, Vector3 position)
@@ -25,7 +26,8 @@ namespace Dealer
 		{
 			var enemy = Instantiate(EnemyPrefab);
 			JsonUtility.FromJsonOverwrite(Resources.Load<TextAsset>("Enemies/" + enemyPath).text,
-				enemy.GetComponent<ProjectileEmitter>());
+				enemy.GetComponent<DelayedRotatingProjectileEmitter>());
+			enemy.GetComponent<DelayedRotatingProjectileEmitter>().ProjectilePrefab = EnemyProjectilePrefab;
 			NetworkServer.Spawn(enemy);
 		}
 	}

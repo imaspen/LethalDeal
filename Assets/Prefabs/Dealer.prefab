@@ -386,6 +386,8 @@ MonoBehaviour:
   CardPrefab: {fileID: 1104646257878908, guid: 57b51cdfb5b87e24ea7f77f0357bff38, type: 2}
   EnemyPrefab: {fileID: 1333476994071504, guid: a4f5274ff22b23f4d9524605b78ad9f9,
     type: 2}
+  EnemyProjectilePrefab: {fileID: 1001283330953044, guid: 28953233fdf205645a1ff718eee96280,
+    type: 2}
 --- !u!222 &222298215945408008
 CanvasRenderer:
   m_ObjectHideFlags: 1

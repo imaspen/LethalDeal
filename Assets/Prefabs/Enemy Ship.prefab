@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114663406466427282}
   - component: {fileID: 50174657242248760}
   - component: {fileID: 61726273814185914}
-  - component: {fileID: 114339717036907582}
+  - component: {fileID: 114427497484525122}
   - component: {fileID: 114049069591211220}
   - component: {fileID: 114320639111288218}
   m_Layer: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 2
---- !u!114 &114339717036907582
+--- !u!114 &114427497484525122
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -159,13 +159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c100aeafea02e0442a8166eeb46bfdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxShots: 5
-  StartingRotation: 90
-  RotationPerShot: 36
-  FixedUpdatesPerShot: 5
-  ProjectileInitialSpeed: 2
-  ProjectilePrefab: {fileID: 1001283330953044, guid: 28953233fdf205645a1ff718eee96280,
-    type: 2}
+  MaxShots: 0
+  StartingRotation: 0
+  RotationPerShot: 0
+  FixedUpdatesPerShot: 0
+  ProjectileInitialSpeed: 0
+  ProjectilePrefab: {fileID: 0}
 --- !u!114 &114663406466427282
 MonoBehaviour:
   m_ObjectHideFlags: 1
