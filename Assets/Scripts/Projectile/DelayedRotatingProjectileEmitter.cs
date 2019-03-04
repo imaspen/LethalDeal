@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 namespace Projectile
 {
     [Serializable]
-    public class DelayedRotatingProjectileEmitter : NetworkBehaviour
+    public class DelayedRotatingProjectileEmitter : ProjectileEmitter
     {
         private int _shotsFired;
         private int _elapsedFrames;
@@ -17,8 +17,7 @@ namespace Projectile
         public float RotationPerShot; //degrees per second
         public int FixedUpdatesPerShot; //# of emits per second
         public float ProjectileInitialSpeed;
-        public GameObject ProjectilePrefab;
-
+        
         // Use this for initialization
         private void Start()
         {

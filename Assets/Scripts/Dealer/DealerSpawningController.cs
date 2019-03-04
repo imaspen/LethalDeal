@@ -25,9 +25,9 @@ namespace Dealer
 		public void CmdSpawnEnemy(string enemyPath)
 		{
 			var enemy = Instantiate(EnemyPrefab);
-			JsonUtility.FromJsonOverwrite(Resources.Load<TextAsset>("Enemies/" + enemyPath).text,
-				enemy.GetComponent<DelayedRotatingProjectileEmitter>());
-			enemy.GetComponent<DelayedRotatingProjectileEmitter>().ProjectilePrefab = EnemyProjectilePrefab;
+			ProjectileEmitter emitter = enemy.AddComponent<DelayedRotatingProjectileEmitter>();
+			JsonUtility.FromJsonOverwrite(Resources.Load<TextAsset>("Enemies/" + enemyPath).text, emitter);
+			emitter.ProjectilePrefab = EnemyProjectilePrefab;
 			NetworkServer.Spawn(enemy);
 		}
 	}

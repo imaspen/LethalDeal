@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 114663406466427282}
   - component: {fileID: 50174657242248760}
   - component: {fileID: 61726273814185914}
-  - component: {fileID: 114427497484525122}
   - component: {fileID: 114049069591211220}
   - component: {fileID: 114320639111288218}
   m_Layer: 0
@@ -148,23 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 2
---- !u!114 &114427497484525122
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333476994071504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c100aeafea02e0442a8166eeb46bfdfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxShots: 0
-  StartingRotation: 0
-  RotationPerShot: 0
-  FixedUpdatesPerShot: 0
-  ProjectileInitialSpeed: 0
-  ProjectilePrefab: {fileID: 0}
 --- !u!114 &114663406466427282
 MonoBehaviour:
   m_ObjectHideFlags: 1
