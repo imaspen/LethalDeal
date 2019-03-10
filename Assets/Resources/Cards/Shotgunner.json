@@ -1,0 +1,6 @@
+{
+  "_title": "Shotgunner",
+  "_description": "Shoots in\na spread\npattern",
+  "_spawns": "Shotgunner",
+  "_emitter": "SpreadShot"
+}

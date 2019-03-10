@@ -2,44 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Deck
+namespace Dealer
 {
-    
-
     public class DeckController : MonoBehaviour
     {
-        private static System.Random rng = new System.Random();
-
         public Queue<string> Deck { get; private set; }
-        // Use this for initialization
-        void Start()
+
+        private void Start()
         {
+            var rng = new System.Random();
             var deckList = new List<string>();
-
-            var shuffledDeck = new Queue<string>();
-
-            deckList.Add("Big Robot");
-            deckList.Add("Medium Robot");
-            deckList.Add("Small Robot");
-            deckList.Add("Gun One");
-            deckList.Add("Gun Two");
-            deckList.Add("Gun Three");
+            Deck = new Queue<string>();
+            for (var i = 0; i < 3; i++) deckList.Add("OneCircle");
+            for (var i = 0; i < 3; i++) deckList.Add("Shotgunner");
+            for (var i = 0; i < 3; i++) deckList.Add("Liner");
 
             while (deckList.Count > 0)
             {
-                int placeholder = rng.Next(deckList.Count);
-                addCardToDeck(deckList[placeholder]);
+                var placeholder = rng.Next(deckList.Count);
+                AddCard(deckList[placeholder]);
                 deckList.RemoveAt(placeholder);
             }
-           
-        }     
+        }
 
-        public void addCardToDeck(string card)
+        public void AddCard(string card)
         {
             Deck.Enqueue(card);
         }
 
-        public string getNextCardFromDeck()
+        public string GetNextCard()
         {
             return Deck.Dequeue();
         }

@@ -1,0 +1,6 @@
+{
+  "_title": "Liner",
+  "_description": "Shoots in\na line",
+  "_spawns": "StraightShooter",
+  "_emitter": "DelayedRotating"
+}
