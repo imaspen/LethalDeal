@@ -15,13 +15,9 @@ public class EnemyShipMovementController : NetworkBehaviour
 		GetComponent<Rigidbody2D>().velocity = new Vector2(0, ShipSpeed);
 	}
 
-//	private void Update ()
-//	{
-//		if (!_networkIdentity.isServer) return;
-//		transform.position = new Vector3(
-//			transform.position.x,
-//			transform.position.y + ShipSpeed,
-//			transform.position.z
-//		);
-//	}
+	private void Update ()
+	{
+		if (!_networkIdentity.isServer || transform.position.y < 6) return;
+		NetworkServer.Destroy(gameObject);
+	}
 }
