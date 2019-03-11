@@ -22,7 +22,7 @@ namespace Gunner
             var moveHorizontal = Input.GetAxis("Horizontal");
             var moveVertical = Input.GetAxis("Vertical");
 
-            var movement = new Vector3(moveHorizontal, moveVertical);
+            var movement = new Vector3(-moveHorizontal, -moveVertical);
             rb.velocity = movement * speed;
         }
     }
