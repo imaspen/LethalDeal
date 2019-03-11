@@ -35,7 +35,7 @@ namespace Projectile
         {
             if (!isServer) return;
             if (other.gameObject.CompareTag(gameObject.tag) || other.gameObject.CompareTag("Card")) return;
-            other.GetComponent<HPController>().TakeDamage(1);
+            if (!other.gameObject.CompareTag("Background")) other.GetComponent<HPController>().TakeDamage(1);
             Destroy(gameObject);
         }
     }
