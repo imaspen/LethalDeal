@@ -10,11 +10,13 @@ namespace Dealer
 		public float Cooldown { get; set; }
 
 		private DealerSpawningController _spawningController;
+		private DeckController _deckController;
 
 		private void Start()
 		{
 			if (!transform.parent.GetComponent<NetworkIdentity>().isLocalPlayer) return;
 			_spawningController = transform.parent.gameObject.GetComponent<DealerSpawningController>();
+			_deckController = transform.parent.GetComponentInChildren<DeckController>();
 			for (var i = 0; i < 5; i++)
 			{
 				AddCardToHand(i);
@@ -31,15 +33,15 @@ namespace Dealer
 		{
 			if (Cooldown > 0) return;
 			_spawningController.CmdSpawnEnemy(cardData.Spawns, cardData.Emitter);
+			_spawningController.CmdDestroyCard(cardData.gameObject);
 			Cooldown = 2f;
 			AddCardToHand(Mathf.FloorToInt(5 - zPos));
-			NetworkServer.Destroy(cardData.gameObject);
 		}
 
 		public void AddCardToHand(int position)
 		{
 			var cardPos = new Vector3(position * 1.5f - 3, -4, 5 - position);
-			_spawningController.CmdSpawnCard("testcard", cardPos);
+			_spawningController.CmdSpawnCard(_deckController.GetNextCard(), cardPos);
 		}
 	}
 }
