@@ -34,6 +34,7 @@ namespace Dealer
 			if (Cooldown > 0) return;
 			_spawningController.CmdSpawnEnemy(cardData.Spawns, cardData.Emitter);
 			_spawningController.CmdDestroyCard(cardData.gameObject);
+			_deckController.AddCard(cardData.Title);
 			Cooldown = 2f;
 			AddCardToHand(Mathf.FloorToInt(5 - zPos));
 		}
