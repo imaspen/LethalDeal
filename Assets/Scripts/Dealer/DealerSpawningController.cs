@@ -36,5 +36,11 @@ namespace Dealer
             emitter.ProjectilePrefab = EnemyProjectilePrefab;
             NetworkServer.Spawn(enemy);
         }
+
+        [Command]
+        public void CmdDestroyCard(GameObject gameObject)
+        {
+            NetworkServer.Destroy(gameObject);
+        }
     }
 }
