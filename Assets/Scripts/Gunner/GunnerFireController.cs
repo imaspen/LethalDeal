@@ -5,17 +5,19 @@ namespace Gunner
 {
     public class GunnerFireController : NetworkBehaviour
     {
-
-        public Transform FirePoint;
         public GameObject BulletPrefab;
         public float Period;
 
         private NetworkIdentity _networkIdentity;
         private float _cooldown;
+        private Camera _camera;
+        private Transform _firepoint;
 
         private void Start()
         {
+            _camera = Camera.main;
             _networkIdentity = GetComponent<NetworkIdentity>();
+            _firepoint = transform.Find("FirePoint");
         }
         
         private void Update()
@@ -30,10 +32,10 @@ namespace Gunner
 
         private void Shoot()
         {
-            var position = Camera.main.WorldToViewportPoint(FirePoint.position);
-            var mousePos = (Vector2) Camera.main.ScreenToViewportPoint(Input.mousePosition + Vector3.forward);
-            var angle = Mathf.Atan2(position.y - mousePos.y, position.x - mousePos.x) * Mathf.Rad2Deg;
-            var bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+            var firePoint = _firepoint.position;
+            var mousePos = (Vector2) _camera.ScreenToWorldPoint(Input.mousePosition);
+            var angle = Mathf.Atan2(firePoint.y - mousePos.y, firePoint.x - mousePos.x) * Mathf.Rad2Deg;
+            var bullet = Instantiate(BulletPrefab, firePoint, _firepoint.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, angle) * new Vector2(-3, 0);
             CmdSpawnBullet(bullet);
         }

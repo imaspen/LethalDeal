@@ -18,7 +18,6 @@ namespace Gunner
         private NetworkIdentity _networkIdentity;
 
         public float speed;
-        public float tilt;
 
         private void Start()
         {
