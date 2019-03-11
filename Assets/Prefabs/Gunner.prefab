@@ -345,7 +345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cfb4b62df51b642b715ca44359dc7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirePoint: {fileID: 4305730558577106}
   BulletPrefab: {fileID: 1001283330953044, guid: 2eb6d413fba1ea245aeaf0a88987d9ab,
     type: 2}
   Period: 0.5
@@ -545,13 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2094b721124b54db7f48699bf26be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundary:
-    xMin: -4
-    xMax: 4
-    yMin: -4
-    yMax: 4
-  speed: 10
-  tilt: 0
+  speed: 5
 --- !u!114 &114960409944340440
 MonoBehaviour:
   m_ObjectHideFlags: 1
