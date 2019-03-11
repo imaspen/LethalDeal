@@ -13,7 +13,7 @@ namespace Dealer
             var rng = new System.Random();
             var deckList = new List<string>();
             Deck = new Queue<string>();
-            for (var i = 0; i < 3; i++) deckList.Add("OneCircle");
+            for (var i = 0; i < 3; i++) deckList.Add("Circler");
             for (var i = 0; i < 3; i++) deckList.Add("Shotgunner");
             for (var i = 0; i < 3; i++) deckList.Add("Liner");
 
