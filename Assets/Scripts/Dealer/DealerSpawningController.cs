@@ -22,7 +22,7 @@ namespace Dealer
         }
 
         [Command]
-        public void CmdSpawnEnemy(string enemyPath, string emitterType)
+        public void CmdSpawnEnemy(string enemyPath, string emitterType, float pos)
         {
             var enemy = Instantiate(EnemyPrefab);
             ProjectileEmitter emitter;
@@ -34,13 +34,16 @@ namespace Dealer
             }
             JsonUtility.FromJsonOverwrite(Resources.Load<TextAsset>("Enemies/" + enemyPath).text, emitter);
             emitter.ProjectilePrefab = EnemyProjectilePrefab;
+            var position = enemy.transform.position;
+            position = new Vector3(1.5f * (3 - pos), position.y, position.z);
+            enemy.transform.position = position;
             NetworkServer.Spawn(enemy);
         }
 
         [Command]
-        public void CmdDestroyCard(GameObject gameObject)
+        public void CmdDestroyCard(GameObject go)
         {
-            NetworkServer.Destroy(gameObject);
+            NetworkServer.Destroy(go);
         }
     }
 }
