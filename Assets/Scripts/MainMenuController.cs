@@ -5,8 +5,6 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour {
-    private readonly string _deckbuilderScene = "Deckbuilder";
-    private readonly string _optionsScene = "Options Menu";
     private NetworkManager _networkManager;
 
     public void Start()
@@ -15,27 +13,17 @@ public class MainMenuController : MonoBehaviour {
         Debug.Log(_networkManager);
     }
 
-    public void onPlayAsGunnerClick()
+    public void OnPlayAsGunnerClick()
     {
         _networkManager.StartHost();
     }
 
-    public void onPlayAsDealerClick()
+    public void OnPlayAsDealerClick()
     {
         _networkManager.StartClient();
     }
 
-    public void onDeckbuilderClick()
-    {
-        SceneManager.LoadScene(_deckbuilderScene);
-    }
-
-    public void onOptionsClick()
-    {
-        SceneManager.LoadScene(_optionsScene);
-    }
-
-    public void onQuitClicked()
+    public void OnQuitClicked()
     {
         Application.Quit();
     }

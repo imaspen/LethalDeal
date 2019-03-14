@@ -12,11 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Screen.unity
     guid: 8624d11affedc294aa0a53aa51fee587
   - enabled: 1
-    path: Assets/Scenes/Deckbuilder.unity
-    guid: 30026b76bf9f3cf4c9b5334231cb452f
-  - enabled: 1
-    path: Assets/Scenes/Options Menu.unity
-    guid: 6ceec3b5d791799479cc8baa11d6bed6
-  - enabled: 1
-    path: Assets/Scenes/Game Over.unity
+    path: Assets/Scenes/Win Screen.unity
     guid: fd2f0797f349c8b4cb1c4e0079aea224
+  - enabled: 1
+    path: Assets/Scenes/Lose Screen.unity
+    guid: f2cd822084428a1448f636d0bbb61848
