@@ -5,13 +5,13 @@ namespace Gunner
 {
     public class GunnerFireController : NetworkBehaviour
     {
-        public GameObject BulletPrefab;
-        public float Period;
+        private Camera _camera;
+        private float _cooldown;
+        private Transform _firepoint;
 
         private NetworkIdentity _networkIdentity;
-        private float _cooldown;
-        private Camera _camera;
-        private Transform _firepoint;
+        public GameObject BulletPrefab;
+        public float Period;
 
         private void Start()
         {
@@ -19,7 +19,7 @@ namespace Gunner
             _networkIdentity = GetComponent<NetworkIdentity>();
             _firepoint = transform.Find("FirePoint");
         }
-        
+
         private void Update()
         {
             if (_networkIdentity.hasAuthority && Input.GetButton("Fire1") && _cooldown <= 0)
@@ -27,6 +27,7 @@ namespace Gunner
                 _cooldown = Period;
                 Shoot();
             }
+
             _cooldown -= Time.deltaTime;
         }
 

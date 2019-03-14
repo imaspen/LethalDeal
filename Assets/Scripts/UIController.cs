@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 
 public abstract class UIController : MonoBehaviour
@@ -18,9 +16,6 @@ public abstract class UIController : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (!_networkIdentity.isLocalPlayer)
-        {
-            gameObject.SetActive(false);
-        }
+        if (!_networkIdentity.isLocalPlayer) gameObject.SetActive(false);
     }
 }

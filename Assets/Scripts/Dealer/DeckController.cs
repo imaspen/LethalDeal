@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Dealer
 {
@@ -10,7 +10,7 @@ namespace Dealer
 
         private void Start()
         {
-            var rng = new System.Random();
+            var rng = new Random();
             var deckList = new List<string>();
             Deck = new Queue<string>();
             for (var i = 0; i < 3; i++) deckList.Add("Circler");

@@ -1,12 +1,12 @@
-﻿using System;
-using UnityEngine.Networking;
+﻿using UnityEngine.Networking;
 
 namespace Enemy
 {
-	public class EnemyHPController : HPController {
-		protected override void Die()
-		{
-			NetworkServer.Destroy(gameObject);
-		}
-	}
+    public class EnemyHPController : HPController
+    {
+        protected override void Die()
+        {
+            NetworkServer.Destroy(gameObject);
+        }
+    }
 }

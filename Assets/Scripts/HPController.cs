@@ -3,9 +3,9 @@ using UnityEngine.Networking;
 
 public abstract class HPController : NetworkBehaviour
 {
-    [SyncVar] private int _hp;
     private Animator _animator;
-    
+    [SyncVar] private int _hp;
+
     public int MaxHP;
 
     public int HP

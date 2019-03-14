@@ -8,9 +8,9 @@ namespace Card
     public class CardData : NetworkBehaviour
     {
         [SyncVar] [SerializeField] private string _description;
-        [SyncVar] [SerializeField] private string _title;
-        [SyncVar] [SerializeField] private string _spawns;
         [SyncVar] [SerializeField] private string _emitter;
+        [SyncVar] [SerializeField] private string _spawns;
+        [SyncVar] [SerializeField] private string _title;
 
         public string Title
         {

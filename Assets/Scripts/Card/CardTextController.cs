@@ -22,7 +22,9 @@ namespace Card
             {
                 OnCardTextChanged();
             }
-            catch (NullReferenceException e) {}
+            catch (NullReferenceException e)
+            {
+            }
         }
 
         private void OnCardTextChanged()

@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetworkManager : UnityEngine.Networking.NetworkManager {
-
+public class NetworkManager : UnityEngine.Networking.NetworkManager
+{
     public GameObject dealerPrefab;
     public GameObject gunnerPrefab;
-    
+
     public NetworkConnection DealerConnection { get; private set; }
     public NetworkConnection GunnerConnection { get; private set; }
 
@@ -28,6 +26,7 @@ public class NetworkManager : UnityEngine.Networking.NetworkManager {
             default:
                 return;
         }
+
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
     }
 }

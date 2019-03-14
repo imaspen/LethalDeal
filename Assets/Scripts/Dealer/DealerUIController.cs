@@ -5,10 +5,10 @@ namespace Dealer
 {
     public class DealerUIController : UIController
     {
-        private Text _hpCounter;
-        private Text _timerText;
-        private TimerController _timer;
         private HPController _hp;
+        private Text _hpCounter;
+        private TimerController _timer;
+        private Text _timerText;
 
         protected override void Init()
         {

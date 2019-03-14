@@ -1,24 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 
 namespace Projectile
 {
     public class SpreadShotProjectileEmitter : ProjectileEmitter
     {
-        private int _shotsFired;
         private int _elapsedFrames;
-        private int _toShoot;
         private Vector3 _emitterDirection;
         private Quaternion _rotationPerShot;
+        private int _shotsFired;
+        private int _toShoot;
+        public float ShotsInSpread;
 
         public float SpreadAngle;
-        public float ShotsInSpread;
 
         private void Start()
         {
-            _emitterDirection = Quaternion.AngleAxis(StartingRotation - (SpreadAngle / 2), new Vector3(0, 0, 1)) * Vector3.up;
+            _emitterDirection = Quaternion.AngleAxis(StartingRotation - SpreadAngle / 2, new Vector3(0, 0, 1)) *
+                                Vector3.up;
             _rotationPerShot = Quaternion.AngleAxis(SpreadAngle / (ShotsInSpread - 1), new Vector3(0, 0, 1));
         }
 
@@ -35,6 +34,7 @@ namespace Projectile
                     NetworkServer.Spawn(projectileSpawn);
                     direction = _rotationPerShot * direction;
                 }
+
                 if (MaxShots > 0) _shotsFired++;
             }
 

@@ -1,14 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 
 public class TimerController : NetworkBehaviour
 {
-    public float GameLength;
-
     [SyncVar] private float _timer;
+    public float GameLength;
 
     public float TimeRemaining
     {
@@ -17,19 +13,16 @@ public class TimerController : NetworkBehaviour
     }
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         TimeRemaining = GameLength;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (isServer)
-        {
-            TimeRemaining -= Time.deltaTime;
-        }
-        
+        if (isServer) TimeRemaining -= Time.deltaTime;
+
         if (!(TimeRemaining <= 0)) return;
         GameObject.Find("/GameController").GetComponent<GameManagerController>().CmdEndGame();
     }

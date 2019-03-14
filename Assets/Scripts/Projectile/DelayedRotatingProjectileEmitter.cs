@@ -7,13 +7,13 @@ namespace Projectile
     [Serializable]
     public class DelayedRotatingProjectileEmitter : ProjectileEmitter
     {
-        private int _shotsFired;
         private int _elapsedFrames;
-        private int _toShoot;
         private Vector3 _emitterDirection;
+        private int _shotsFired;
+        private int _toShoot;
 
         public float RotationPerShot; //degrees per second
-        
+
         // Use this for initialization
         private void Start()
         {
@@ -24,8 +24,7 @@ namespace Projectile
         private void FixedUpdate()
         {
             if (!isServer) return;
-            if (_elapsedFrames % FixedUpdatesPerShot == 0 && (_shotsFired < MaxShots || MaxShots <= 0) )
-            {
+            if (_elapsedFrames % FixedUpdatesPerShot == 0 && (_shotsFired < MaxShots || MaxShots <= 0))
                 for (var i = 0; i < _toShoot; i++)
                 {
                     var projectileSpawn = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
@@ -33,10 +32,9 @@ namespace Projectile
                     projectileSpawn.GetComponent<Rigidbody2D>().velocity = _emitterDirection * ProjectileInitialSpeed;
                     _emitterDirection = rotation * _emitterDirection;
                     NetworkServer.Spawn(projectileSpawn);
-    
+
                     if (MaxShots > 0) _shotsFired++;
                 }
-            }
 
             _elapsedFrames++;
         }

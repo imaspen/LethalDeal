@@ -1,5 +1,4 @@
 ﻿using Dealer;
-using Projectile;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -9,10 +8,10 @@ namespace Card
     {
         private Animator _animator;
         private DealerHandController _dealerHandController;
-        private NetworkIdentity _networkIdentity;
-        
+
         private bool _isDragging;
         private Vector3 _mouseOffset;
+        private NetworkIdentity _networkIdentity;
 
         private Vector3 _startPosition;
 

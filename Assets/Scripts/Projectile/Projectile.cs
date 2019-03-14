@@ -5,13 +5,13 @@ namespace Projectile
 {
     public class Projectile : NetworkBehaviour
     {
+        private Collider2D _collider2D;
+        private float _elapsedTimeAlive;
+
+        private Vector3 _initialSize;
 
         [SyncVar] public float MaxLifeTime;
         [SyncVar] public Vector3 MaxSize;
-
-        private Vector3 _initialSize;
-        private float _elapsedTimeAlive;
-        private Collider2D _collider2D;
 
         // Use this for initialization
         private void Start()
@@ -21,7 +21,7 @@ namespace Projectile
         }
 
         // Use fixed update to compute the position of a projectile at a fixed interval
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             var scale = _initialSize + MaxSize * Mathf.Sin(_elapsedTimeAlive / MaxLifeTime * Mathf.PI);
             transform.localScale = scale;

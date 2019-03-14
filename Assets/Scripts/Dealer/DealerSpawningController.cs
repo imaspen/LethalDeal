@@ -18,7 +18,8 @@ namespace Dealer
             var newCard = Instantiate(CardPrefab);
             newCard.transform.position = position;
             newCard.GetComponent<CardData>().LoadJson(cardName);
-            NetworkServer.SpawnWithClientAuthority(newCard, GameObject.Find("/Network Manager").GetComponent<NetworkManager>().DealerConnection);
+            NetworkServer.SpawnWithClientAuthority(newCard,
+                GameObject.Find("/Network Manager").GetComponent<NetworkManager>().DealerConnection);
         }
 
         [Command]
@@ -28,10 +29,15 @@ namespace Dealer
             ProjectileEmitter emitter;
             switch (emitterType)
             {
-                case "SpreadShot": emitter = enemy.AddComponent<SpreadShotProjectileEmitter>(); break;
-                case "DelayedRotating": emitter = enemy.AddComponent<DelayedRotatingProjectileEmitter>(); break;
+                case "SpreadShot":
+                    emitter = enemy.AddComponent<SpreadShotProjectileEmitter>();
+                    break;
+                case "DelayedRotating":
+                    emitter = enemy.AddComponent<DelayedRotatingProjectileEmitter>();
+                    break;
                 default: throw new Exception("Emitter Type Not Found");
             }
+
             JsonUtility.FromJsonOverwrite(Resources.Load<TextAsset>("Enemies/" + enemyPath).text, emitter);
             emitter.ProjectilePrefab = EnemyProjectilePrefab;
             var position = enemy.transform.position;

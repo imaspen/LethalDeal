@@ -25,6 +25,7 @@ public class GameOverController : MonoBehaviour
             if (_cooldown < 0) ExitGameMessage.text = "Press any key to return to the main menu.";
             return;
         }
+
         _networkManager.StopClient();
         _networkManager.StopServer();
         SceneManager.LoadScene("Main Menu");
