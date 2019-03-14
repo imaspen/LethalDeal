@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 114716503068493554}
   - component: {fileID: 114048337434284932}
   - component: {fileID: 95139066521160278}
+  - component: {fileID: 114608512149633906}
   m_Layer: 0
   m_Name: Gunner
   m_TagString: Player
@@ -447,6 +448,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a65660c239aa704e951b7e65f755f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114608512149633906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784241727488526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 95139066521160278}
+  m_ParameterSendBits: 0
+  param0: 
+  param1: 
+  param2: 
+  param3: 
+  param4: 
+  param5: 
 --- !u!114 &114672855863916986
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114049069591211220}
   - component: {fileID: 114320639111288218}
   - component: {fileID: 95538444868788336}
+  - component: {fileID: 114005443320027830}
   m_Layer: 0
   m_Name: Enemy Ship
   m_TagString: Enemy
@@ -109,6 +110,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114005443320027830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333476994071504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 95538444868788336}
+  m_ParameterSendBits: 0
+  param0: 
+  param1: 
+  param2: 
+  param3: 
+  param4: 
+  param5: 
 --- !u!114 &114049069591211220
 MonoBehaviour:
   m_ObjectHideFlags: 1
