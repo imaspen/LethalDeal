@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 61726273814185914}
   - component: {fileID: 114049069591211220}
   - component: {fileID: 114320639111288218}
+  - component: {fileID: 95538444868788336}
   m_Layer: 0
   m_Name: Enemy Ship
   m_TagString: Enemy
@@ -91,6 +92,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.117647}
   m_EdgeRadius: 0
+--- !u!95 &95538444868788336
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333476994071504}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e9cd082818e7b7459c92e3c74024acc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114049069591211220
 MonoBehaviour:
   m_ObjectHideFlags: 1

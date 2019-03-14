@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 114839514243269736}
   - component: {fileID: 114716503068493554}
   - component: {fileID: 114048337434284932}
+  - component: {fileID: 95139066521160278}
   m_Layer: 0
   m_Name: Gunner
   m_TagString: Player
@@ -243,6 +244,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &95139066521160278
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784241727488526}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e9cd082818e7b7459c92e3c74024acc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114013206242339432
 MonoBehaviour:
   m_ObjectHideFlags: 1
