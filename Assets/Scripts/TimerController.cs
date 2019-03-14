@@ -31,6 +31,6 @@ public class TimerController : NetworkBehaviour
         }
         
         if (!(TimeRemaining <= 0)) return;
-        GameObject.Find("/GameController").GetComponent<GameManagerController>().EndGame();
+        GameObject.Find("/GameController").GetComponent<GameManagerController>().CmdEndGame();
     }
 }

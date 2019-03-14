@@ -1,35 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
-public class GameManagerController : MonoBehaviour
+public class GameManagerController : NetworkBehaviour
 {
     private NetworkIdentity _networkIdentity;
-    private UnityEngine.Networking.NetworkManager _networkManager;
+    private NetworkManager _networkManager;
 
-    void Start()
+    private void Start()
     {
         _networkIdentity = GetComponent<NetworkIdentity>();
-        _networkManager = UnityEngine.Networking.NetworkManager.singleton;
+        _networkManager = GameObject.Find("/Network Manager").GetComponent<NetworkManager>();
     }
 
-    public void EndGame()
+    [Command]
+    public void CmdEndGame()
     {
-#if !UNITY_EDITOR
-        _networkManager.offlineScene = "Game Over";
-        if (_networkIdentity.isServer && _networkIdentity.isClient)
-        {
-            _networkManager.StopHost();
-        }
-        else if (_networkIdentity.isServer)
-        {
-            _networkManager.StopServer();
-        }
-        else
-        {
-            _networkManager.StopClient();
-        }
-#endif
+        TargetWin(_networkManager.DealerConnection);
+        TargetLose(_networkManager.GunnerConnection);
+    }
+
+    [TargetRpc]
+    private void TargetWin(NetworkConnection connection)
+    {
+        SceneManager.LoadScene("Game Over");
+    }
+
+    [TargetRpc]
+    private void TargetLose(NetworkConnection connection)
+    {
+        SceneManager.LoadScene("Game Over");
     }
 }
