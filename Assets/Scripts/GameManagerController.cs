@@ -4,12 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerController : NetworkBehaviour
 {
-    private NetworkIdentity _networkIdentity;
     private NetworkManager _networkManager;
 
     private void Start()
     {
-        _networkIdentity = GetComponent<NetworkIdentity>();
         _networkManager = GameObject.Find("/Network Manager").GetComponent<NetworkManager>();
     }
 
