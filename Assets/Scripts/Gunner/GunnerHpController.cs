@@ -6,7 +6,7 @@ namespace Gunner
     {
         protected override void Die()
         {
-            GameObject.Find("/GameController").GetComponent<GameManagerController>().EndGame();
+            GameObject.Find("/GameController").GetComponent<GameManagerController>().CmdEndGame();
         }
     }
 }
