@@ -21,12 +21,12 @@ public class GameManagerController : NetworkBehaviour
     [TargetRpc]
     private void TargetWin(NetworkConnection connection)
     {
-        SceneManager.LoadScene("Game Over");
+        SceneManager.LoadScene("Win Screen");
     }
 
     [TargetRpc]
     private void TargetLose(NetworkConnection connection)
     {
-        SceneManager.LoadScene("Game Over");
+        SceneManager.LoadScene("Lose Screen");
     }
 }
