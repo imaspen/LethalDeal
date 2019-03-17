@@ -1,5 +1,5 @@
 {
-  "MaxShots": 10,
+  "MaxShots": 0,
   "StartingRotation": 90.0,
   "RotationPerShot": 36.0,
   "FixedUpdatesPerShot": 20,

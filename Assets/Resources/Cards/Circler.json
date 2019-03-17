@@ -1,6 +1,6 @@
 {
   "_title": "Circler",
-  "_description": "Shoots a\ncircle of\nbullets",
+  "_description": "Shoots\ncircles of\nbullets",
   "_spawns": "OneCircle",
   "_emitter": "DelayedRotating"
 }
