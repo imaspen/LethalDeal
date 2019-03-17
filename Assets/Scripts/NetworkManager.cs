@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class NetworkManager : UnityEngine.Networking.NetworkManager
 {
@@ -28,5 +29,10 @@ public class NetworkManager : UnityEngine.Networking.NetworkManager
         }
 
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+    }
+
+    public void setIP(InputField inputField)
+    {
+        networkAddress = inputField.text;
     }
 }

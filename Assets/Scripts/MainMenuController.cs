@@ -2,6 +2,8 @@
 
 public class MainMenuController : MonoBehaviour
 {
+    public GameObject ConnectionDisplay;
+    
     private NetworkManager _networkManager;
 
     public void Start()
@@ -16,6 +18,11 @@ public class MainMenuController : MonoBehaviour
     }
 
     public void OnPlayAsDealerClick()
+    {
+        ConnectionDisplay.SetActive(true);
+    }
+
+    public void OnConnectClick()
     {
         _networkManager.StartClient();
     }
