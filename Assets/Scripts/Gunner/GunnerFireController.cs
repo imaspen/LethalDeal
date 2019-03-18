@@ -34,8 +34,21 @@ namespace Gunner
         private void Shoot()
         {
             var firePoint = _firepoint.position;
-            var mousePos = (Vector2) _camera.ScreenToWorldPoint(Input.mousePosition);
-            var angle = Mathf.Atan2(firePoint.y - mousePos.y, firePoint.x - mousePos.x) * Mathf.Rad2Deg;
+            
+            float angle;
+            if (Input.GetJoystickNames().Length > 0 && Input.GetJoystickNames()[0] != "") //controller
+            {
+                print(Input.GetJoystickNames()[0]);
+                var x = Input.GetAxis("FireHorizontal");
+                var y = Input.GetAxis("FireVertical");
+                angle = Mathf.Atan2(x, y);
+            }
+            else
+            {
+                var mousePos = (Vector2) _camera.ScreenToWorldPoint(Input.mousePosition);
+                angle = Mathf.Atan2(firePoint.y - mousePos.y, firePoint.x - mousePos.x) * Mathf.Rad2Deg;
+            }
+
             var bullet = Instantiate(BulletPrefab, firePoint, _firepoint.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, angle) * new Vector2(-3, 0);
             CmdSpawnBullet(bullet);
