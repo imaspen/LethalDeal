@@ -80,12 +80,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1424548867251984}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4d498d5cce6e8341a83ac8e1195a778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameLength: 180
+  GameLength: 120
 --- !u!114 &114813178411977958
 MonoBehaviour:
   m_ObjectHideFlags: 1
