@@ -23,6 +23,7 @@ public class NetworkManager : UnityEngine.Networking.NetworkManager
             case 2:
                 player = Instantiate(dealerPrefab);
                 DealerConnection = conn;
+                GameObject.Find("/GameController").GetComponent<TimerController>().enabled = true;
                 break;
             default:
                 return;
